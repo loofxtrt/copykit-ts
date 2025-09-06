@@ -1,5 +1,4 @@
 import fs from 'fs/promises';
-import path from 'path';
 
 async function fileExists(filePath: string): Promise<boolean> {
     // tentar acessar um arquivo pra verificar se ele existe

@@ -4,8 +4,7 @@ import fs from 'fs';
 import path from 'path';
 
 // criar os tipos principais pro objeto de replacemap
-
-// replaceentry representa uma entrada singular, como um app
+// replaceentry representa uma entrada singular dentro do 'entries'
 type ReplaceEntry = {
     'substitute': string;   // nome do arquivo (não o path completo) do ícone substituto
     'aliases'?: string[];   // não obrigatório. algumas entradas podem ter apenas um nome, que é a chave
@@ -17,6 +16,8 @@ type ReplaceEntry = {
 // e atribuído a essa chave, tem um obj que representa a entrada (substituto do spotify, aliases etc)
 type ReplaceMap = Record<string, ReplaceEntry>;
 
+// replacementstructure representa o arquivo inteiro
+// ele deve ter apenas as entradas principais
 type ReplacementStructure = {
     'entries': ReplaceMap;
     'targets-dir': string;
@@ -24,6 +25,7 @@ type ReplacementStructure = {
 }
 
 async function main() {
+    // iniciar as variáveis aqui pq elas precisam ser usáveis fora do escopo do try
     let replaceMap: ReplaceMap = {};
     let targetsDir: string = '';
     let substitutesDir: string = '';
@@ -33,7 +35,7 @@ async function main() {
         // ler o arquivo yaml e transformar o conteúdo em um objeto js
         const yamlPath = '/mnt/seagate/workspace/coding/projects/scripts/copykit-ts/maps/test.yaml';
         const textContent = fs.readFileSync(yamlPath, 'utf-8');
-        const dataStructure = yaml.load(textContent) as ReplacementStructure;
+        const dataStructure = yaml.load(textContent) as ReplacementStructure; // assume que o arquivo yaml sempre vai ter a estrutura certa
 
         // retorno dos dados com segurança
         if (dataStructure) {
