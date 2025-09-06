@@ -1,0 +1,9 @@
+targets-dir: /mnt/seagate/workspace/coding/projects/scripts/copykit-ts/testing/targets
+substitutes-dir: /mnt/seagate/workspace/coding/projects/scripts/copykit-ts/testing/substitutes/o-barato
+
+entries:
+  lara:
+    substitute: criatura
+    aliases:
+      - caixa
+      - gigi

@@ -43,7 +43,9 @@ export async function replace(targetIcons, substituteIcon) {
     }
     // for tradicional em vez de foreach pra que a assíncronia dentro dos {} funcione
     // o for respeita os awaits dentro dele, enquanto o foreach ignoraria isso
-    for (const target of targetIcons) {
+    for (let target of targetIcons) {
+        // add .svg
+        target = await normalizeSvgName(target);
         if (!await fileExists(target)) {
             console.error(`arquivo a ser substituído inválido: ${target}`);
             continue;
