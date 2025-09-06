@@ -35,6 +35,17 @@ async function normalizeSvgName(fileName: string): Promise<string> {
 }
 
 export async function replace(targetIcons: string[], substituteIcon: string) {
+    /**
+     * obtém um grupo de arquivos e substitui eles com um único ícone
+     * ambos os parâmetros devem ser paths completos
+     * 
+     * @param targetIcons:
+     *  o grupo de ícones que devem ser substituídos
+     * 
+     * @param substituteIcon:
+     *  o ícone pelo qual os do grupo vão ser substituídos
+     */
+
     // checar se o ícone substituto é válido
     substituteIcon = await normalizeSvgName(substituteIcon);
     if (!await fileExists(substituteIcon)) {
@@ -45,7 +56,7 @@ export async function replace(targetIcons: string[], substituteIcon: string) {
     // for tradicional em vez de foreach pra que a assíncronia dentro dos {} funcione
     // o for respeita os awaits dentro dele, enquanto o foreach ignoraria isso
     for (let target of targetIcons) {
-        // add .svg
+        // adicionar .svg no final do path
         target = await normalizeSvgName(target);
 
         if (!await fileExists(target)) {

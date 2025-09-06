@@ -24,7 +24,22 @@ type ReplacementStructure = {
     'substitutes-dir': string;
 }
 
-async function main() {
+async function main(yamlPath: string) {
+    /**
+     * lê o arquivo yaml passado pra ela, e com base nas informações desse arquivo, chama o replace
+     * 
+     * o targets-dir do arquivo indica onde a substituição deve ser basear
+     * numa substituição de ícones de apps, se pareceria como: nomedopack/apps/scalable/
+     * e ao fim da função, os aliases/key da entrada do yaml são concatenados ao targets-dir, formando o path completo
+     * 
+     * o substitutes-dir é onde os ícones substitutos estão localizados
+     * assim como no targets, o valor da chave 'substitute' do yaml é concatenado com o path pra achar o ícone
+     * 
+     * os aliases são todos os nomes que um mesmo arquivo pode ter. como gnome-settings, que tem o mesmo ícone de xfce-settings
+     * a ignore-key pode ser usada pra que a key da entrada não conte como um desses aliases
+     * não é estritamente necessário .svg no final desses aliases pq o replace já normaliza eles
+     */
+
     // iniciar as variáveis aqui pq elas precisam ser usáveis fora do escopo do try
     let replaceMap: ReplaceMap = {};
     let targetsDir: string = '';
@@ -33,7 +48,6 @@ async function main() {
     // obter o mapeamento de replaces definido por arquivos yaml
     try {
         // ler o arquivo yaml e transformar o conteúdo em um objeto js
-        const yamlPath = '/mnt/seagate/workspace/coding/projects/scripts/copykit-ts/maps/test.yaml';
         const textContent = fs.readFileSync(yamlPath, 'utf-8');
         const dataStructure = yaml.load(textContent) as ReplacementStructure; // assume que o arquivo yaml sempre vai ter a estrutura certa
 
@@ -109,4 +123,4 @@ async function main() {
     });
 }
 
-await main();
+await main('/mnt/seagate/workspace/coding/projects/scripts/copykit-ts/maps/test.yaml');
