@@ -1,0 +1,33 @@
+entries:
+  folder-videos:
+    substitute: kora_folder-videos
+  
+  folder-pictures:
+    substitute: kora_folder-pictures
+  
+  folder-pictures-open:
+    substitute: kora_folder-pictures-open
+  
+  folder-music:
+    substitute: kora_folder-music
+  folder-music-open:
+    substitute: kora_folder-music-open
+  
+  folder-documents:
+    substitute: kora_folder-documents
+  
+  folder-download:
+    substitute: kora_folder-download
+  
+  folder-publicshare:
+    substitute: kora_folder-publicshare
+  folder-publicshare-open:
+    substitute: kora_folder-publicshare-open
+
+  user-desktop:
+    substitute: kora_user-desktop
+    aliases:
+      # - gnome-desktop-config # removido pq sobreescreve o ícone de engrenagem com uma pasta, não deve ser mudado
+  
+  user-home:
+    substitute: kora_user-home

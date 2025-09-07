@@ -1,38 +1,6 @@
 import fs from 'fs/promises';
-
-async function fileExists(filePath: string): Promise<boolean> {
-    // tentar acessar um arquivo pra verificar se ele existe
-    // se usa access ao invés de existssync por causa do suporte ao assíncronismo
-    try {
-        await fs.access(filePath);
-        return true;
-    } catch (err) {
-        console.error(`erro ao checar se ${fileExists} existe: ${err}`);
-        return false;
-    }
-}
-
-async function isSymlink(filePath: string): Promise<boolean> {
-    try {
-        // usa lstat em vez de stat pra que o caminho verificado seja o possível symlink em si
-        // o stat navegaria até o arquivo original, fazendo isso sempre retornar false, mesmo sendo um symlink
-        const stats = await fs.lstat(filePath);
-        return stats.isSymbolicLink();
-    } catch (err) {
-        console.error(`erro ao checar se ${filePath} é um symlink: ${err}`);
-        return false
-    }
-}
-
-async function normalizeSvgName(fileName: string): Promise<string> {
-    // adicionar .svg no final de um nome de arquivo caso necessário
-    // tanto um nome de arquivo singular quanto um path inteiro podem ser passados
-    if (!fileName.endsWith('.svg')) {
-        return fileName += '.svg';
-    } else {
-        return fileName;
-    }
-}
+import { fileExists, isSymlink, normalizeSvgName } from './generic/helpers.js';
+import logger from './generic/logger.js';
 
 export async function replace(targetIcons: string[], substituteIcon: string) {
     /**
@@ -49,7 +17,7 @@ export async function replace(targetIcons: string[], substituteIcon: string) {
     // checar se o ícone substituto é válido
     substituteIcon = await normalizeSvgName(substituteIcon);
     if (!await fileExists(substituteIcon)) {
-        console.info(`o arquivo ${substituteIcon} não existe, pulando`);
+        logger.error('o arquivo de substituição é inválido', substituteIcon);
         return;
     }
 
@@ -60,22 +28,22 @@ export async function replace(targetIcons: string[], substituteIcon: string) {
         target = await normalizeSvgName(target);
 
         if (!await fileExists(target)) {
-            console.error(`arquivo a ser substituído inválido: ${target}`);
-            continue;
+            logger.info('o arquivo a ser substituído não existe, criando ele agora', target);
         }
 
         // não tem necessidade de substituir symlinks, passa pro próximo arquivo
         if (await isSymlink(target)) {
-            console.log(`pulando ${target} por ser um symlink`);
+            logger.info('pulando o arquivo por ser um symlink', target);
             continue;
         }
 
         // copiar o arquivo substituto e sobreescrever o target
         try {
             fs.copyFile(substituteIcon, target);
-            console.log(`${target} substituído com sucesso por ${substituteIcon}`);
+            logger.success('arquivo substituído com sucesso', `alvo:       ${target}`, `substituto: ${substituteIcon}`);
         } catch (err) {
-            console.error(`erro ao substituir ${target}: ${err}`);
+            logger.error('erro ao substituir o arquivo', target);
+            logger.caught(err);
         }
     };
 }

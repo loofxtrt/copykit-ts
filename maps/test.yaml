@@ -3,6 +3,7 @@ substitutes-dir: /mnt/seagate/workspace/coding/projects/scripts/copykit-ts/testi
 
 entries:
   lara:
+    remake-symlinks: true
     substitute: criatura
     aliases:
       - caixa
