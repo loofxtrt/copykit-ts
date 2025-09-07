@@ -1,0 +1,6 @@
+entries:
+  bitwig:
+    substitute: kora_bitwig
+    aliases:
+      - bitwig-studio
+      - com.bitwig.BitwigStudio 

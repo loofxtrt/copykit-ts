@@ -109,9 +109,12 @@ async function main(yamlPath: string) {
             // além de adicionar o nome da key nos targets, também adicionar os aliases
             targets.push(entry);
             targets.concat(aliases);
+            
+            console.info(`considerando a chave de ${entry} como um dos aliases`);
         } else {
             // ignorar a key
             targets = aliases;
+            console.info(`ignorando a chave de ${entry}`);
         }
 
         // formatar o caminho completo dos valores

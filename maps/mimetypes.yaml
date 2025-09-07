@@ -1,0 +1,24 @@
+entries:
+  rust:
+    substitute:
+    aliases:
+      - text-rust
+      - text-x-rust
+    ignore-key: true # se fosse false, o jogo rust seria sobreescrito em vez da linguagem de programação
+
+  javascript:
+    substitute:
+    aliases:
+      - application-javascript
+      - application-x-javascript
+      - gnome-mime-application-javascript
+      - gnome-mime-application-x-javascript
+      - gnome-mime-text-javascript
+      - gnome-mime-text-x-javascript
+      - text-javascript
+      - text-x-javascript
+
+  kotlin:
+    substitute:
+    aliases:
+      - text-x-kotlin

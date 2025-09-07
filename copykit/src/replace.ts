@@ -26,7 +26,7 @@ async function isSymlink(filePath: string): Promise<boolean> {
 
 async function normalizeSvgName(fileName: string): Promise<string> {
     // adicionar .svg no final de um nome de arquivo caso necessário
-    // apenas o nome do arquivo deve ser passado, não um path inteiro
+    // tanto um nome de arquivo singular quanto um path inteiro podem ser passados
     if (!fileName.endsWith('.svg')) {
         return fileName += '.svg';
     } else {
@@ -49,7 +49,7 @@ export async function replace(targetIcons: string[], substituteIcon: string) {
     // checar se o ícone substituto é válido
     substituteIcon = await normalizeSvgName(substituteIcon);
     if (!await fileExists(substituteIcon)) {
-        console.error(`arquivo do ícone de substituição inválido: ${substituteIcon}`);
+        console.info(`o arquivo ${substituteIcon} não existe, pulando`);
         return;
     }
 
