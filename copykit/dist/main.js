@@ -18,6 +18,10 @@ async function handleReplaceFile(yamlPath) {
      * os aliases são todos os nomes que um mesmo arquivo pode ter. como gnome-settings, que tem o mesmo ícone de xfce-settings
      * a ignore-key pode ser usada pra que a key da entrada não conte como um desses aliases
      * não é estritamente necessário .svg no final desses aliases pq o replace já normaliza eles
+     *
+     * caso remake-symlinks seja true na entrada, o script vai apagar todos os arquivos indicados no alises
+     * e depois, criar um único arquivo, e recriar todos os aliases agora como symlinks, que apontam pro caminho principal
+     * serve pra deshardcodar múltiplos ícones repetidos que poderiam ser só symlinks, tipo os mimetypes de zip
      */
     // iniciar as variáveis aqui pq elas precisam ser usáveis fora do escopo do try
     let replaceMap = {};
@@ -25,7 +29,7 @@ async function handleReplaceFile(yamlPath) {
     let substitutesDir = '';
     // obter o mapeamento de replaces definido por arquivos yaml
     try {
-        logger.info('iniciando leitura do mapa de substituição', yamlPath);
+        logger.init('iniciando leitura do mapa de substituição', yamlPath);
         // ler o arquivo yaml e transformar o conteúdo em um objeto js
         const textContent = fs.readFileSync(yamlPath, 'utf-8');
         const dataStructure = yaml.load(textContent); // assume que o arquivo yaml sempre vai ter a estrutura certa

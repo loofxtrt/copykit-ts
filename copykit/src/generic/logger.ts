@@ -30,6 +30,10 @@ function baseLog(level: string = 'text', msg: string[]) {
             color = chalk.yellow;
             shortLevel = 'warn';
             break;
+        case 'init':
+            color = chalk.yellow;
+            shortLevel = 'init';
+            break;
         default:
             color = chalk.reset;
             shortLevel = 'text';
@@ -57,6 +61,9 @@ function baseLog(level: string = 'text', msg: string[]) {
         msgLines.forEach(line => {
             extraLines += line + '\n    ';
         });
+
+        // remover a quebra de linha extra do final
+        extraLines = extraLines.trimEnd();
     }
 
     // pintar as linhas extras com a mesma cor do level, mas com um tom mais fraco
@@ -92,6 +99,11 @@ function warn(...msgArray: string[]) {
     baseLog('warn', msgArray);
 }
 
+function init(...msgArray: string[]) {
+    // log usado pra anunciar quando um processo começa
+    baseLog('init', msgArray);
+}
+
 function caught(err: any) {
     // caso especial pra imprimir errs capturados com catch
     console.error(chalk.red(err));
@@ -102,5 +114,6 @@ export default {
     error,
     info,
     warn,
+    init,
     caught
 }

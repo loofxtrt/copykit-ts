@@ -1,0 +1,19 @@
+for (const file of targetFiles) {
+        // obter o nome sem a extensão e depois reconstruir como path completo de novo
+        // pq pode ter algum arquivo assim criado por engano
+        const parentDir = path.parse(file).dir;
+        const fileName = path.parse(file).name;
+        const extensionless = path.join(parentDir, fileName);
+        const filesToCheck = [file, extensionless];
+
+        // excluir os arquivos caso eles existam
+        for (const f of filesToCheck) {
+            if (!await fileExists(f)) {
+                logger.info('pulando arquivo inexistente', f);
+                continue;
+            }
+
+            await fs.unlink(f);
+            logger.info('arquivo deletado', f);
+        }
+    }

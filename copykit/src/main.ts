@@ -58,7 +58,7 @@ async function handleReplaceFile(yamlPath: string) {
 
     // obter o mapeamento de replaces definido por arquivos yaml
     try {
-        logger.info('iniciando leitura do mapa de substituição', yamlPath);
+        logger.init('iniciando leitura do mapa de substituição', yamlPath);
 
         // ler o arquivo yaml e transformar o conteúdo em um objeto js
         const textContent = fs.readFileSync(yamlPath, 'utf-8');

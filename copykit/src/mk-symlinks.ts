@@ -27,24 +27,17 @@ export async function remakeSymlinks(targetFiles: string[], copyMainFrom: string
     pasteMainInto = await normalizeSvgName(pasteMainInto);
 
     // deletar todos os arquivos antes de fazer qualquer outra coisa
+    // geralmente esses arquivos são os mesmos que os aliases
+    logger.init('inciando a remoção de arquivos aliases');
+    
     for (const file of targetFiles) {
-        logger.info('incialização remoção de arquivos aliases');
-
-        // obter o nome sem a extensão tbm
-        // pq pode ter algum arquivo assim criado por engano
-        const extensionless = path.parse(file).name;
-        const filesToCheck = [file, extensionless];
-
-        // excluir os arquivos caso eles existam
-        for (const f of filesToCheck) {
-            if (!await fileExists(f)) {
-                logger.info('pulando arquivo inexistente', f);
-                continue;
-            }
-
-            await fs.unlink(f);
-            logger.info('arquivo deletado', f);
+        if (!await fileExists(file)) {
+            logger.info('pulando arquivo inexistente', file);
+            continue;
         }
+
+        await fs.unlink(file);
+        logger.info('arquivo deletado', file);
     }
 
     // criar o arquivo principal
@@ -73,7 +66,7 @@ export async function remakeSymlinks(targetFiles: string[], copyMainFrom: string
 
             logger.success('symlink criado', `target: ${mainRelativeName}`, `path:   ${file}`);
         } catch (err) {
-            logger.error('erro ao criar symlink', mainRelativeName, file);
+            logger.error('erro ao criar symlink', `target: ${mainRelativeName}`, `path:   ${file}`);
             logger.caught(err);
         }
     }

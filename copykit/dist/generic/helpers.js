@@ -1,10 +1,15 @@
 import fs from 'fs/promises';
 import logger from './logger.js';
 export async function fileExists(filePath) {
-    // tentar acessar um arquivo pra verificar se ele existe
-    // se usa access ao invés de existssync por causa do suporte ao assíncronismo
+    /**
+     * tentar acessar um arquivo pra verificar se ele existe
+     *
+     * antes, se usava fs.access ao invés de existssync por causa do suporte ao assíncronismo
+     * mas agora também se usa lstat nessa func pq o lstat NÃO SEGUE O SYMLINK
+     * ele verifica o symlink como se fosse um arquivo real, não tentando verificar pra onde ele aponta
+     */
     try {
-        await fs.access(filePath);
+        await fs.lstat(filePath);
         return true;
     }
     catch {
