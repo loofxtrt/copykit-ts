@@ -124,9 +124,10 @@ async function handleReplaceFile(yamlPath: string) {
         const ignoreKey = entry['ignore-key'];
 
         if (!ignoreKey) {
-            // além de adicionar o nome da key nos targets, também adicionar os aliases
+            // além de adicionar o nome da key nos targets
+            // também somar o array de aliases com o de targets
             targets.push(entryKey);
-            targets.concat(aliases);
+            targets.push(...aliases);
             
             logger.info('considerando a chave da entrada como um dos aliases', entryKey);
         } else {
@@ -139,12 +140,17 @@ async function handleReplaceFile(yamlPath: string) {
         targets = targets.map(target => path.join(targetsDir, target));
         substitute = path.join(substitutesDir, substitute);
 
-        // chamar a substituição
-        replace(targets, substitute);
-
-        // caso a flag de remake symlinks seja true
+        // chamar as funções
         const mkSymFlag = entry['remake-symlinks'];
+        
+        if (!mkSymFlag) {
+            // substituição normal
+            replace(targets, substitute);
+        }
+
         if (mkSymFlag) {
+            // criação de symlinks
+
             // decidir o nome do arquivo o qual todos os demais symlinks vão apontar
             let mainIconName: string = '';
 
@@ -160,7 +166,7 @@ async function handleReplaceFile(yamlPath: string) {
             }
 
             // refazer os symlinks
-            remakeSymlinks(targets, substitute, mainIconName);
+            remakeSymlinks(targets, substitute, path.join(targetsDir, mainIconName));
         }
     });
 }

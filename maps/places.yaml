@@ -26,8 +26,8 @@ entries:
 
   user-desktop:
     substitute: kora_user-desktop
-    aliases:
-      # - gnome-desktop-config # removido pq sobreescreve o ícone de engrenagem com uma pasta, não deve ser mudado
+    #aliases:
+      #- gnome-desktop-config # removido pq sobreescreve o ícone de engrenagem com uma pasta, não deve ser mudado
   
   user-home:
     substitute: kora_user-home

@@ -33,7 +33,7 @@ export async function replace(targetIcons, substituteIcon) {
         }
         // copiar o arquivo substituto e sobreescrever o target
         try {
-            fs.copyFile(substituteIcon, target);
+            await fs.copyFile(substituteIcon, target);
             logger.success('arquivo substituído com sucesso', `alvo:       ${target}`, `substituto: ${substituteIcon}`);
         }
         catch (err) {
