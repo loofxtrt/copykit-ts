@@ -39,3 +39,12 @@ export async function normalizeSvgName(fileName: string): Promise<string> {
         return fileName;
     }
 }
+
+export async function normalizeYamlName(fileName: string): Promise<string> {
+    // mesma coisa do normalizesvg, mas pra yaml
+    if(!fileName.endsWith('.yaml') || !fileName.endsWith('.yml')) {
+        return fileName += '.yaml';
+    } else {
+        return fileName;
+    }
+}

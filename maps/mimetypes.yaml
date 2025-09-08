@@ -1,3 +1,5 @@
+target-dir: mimetypes/scalable
+
 entries:
   rust:
     ignore-key: true # se fosse false, o jogo rust seria sobreescrito em vez da linguagem de programação rust

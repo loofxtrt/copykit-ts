@@ -1,3 +1,5 @@
+target-dir: places/scalable
+
 entries:
   folder-videos:
     substitute: kora_folder-videos

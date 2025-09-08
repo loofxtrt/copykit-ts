@@ -1,3 +1,5 @@
+target-dir: apps/scalable
+
 entries:
   discord:
     substitute: kora_discord
@@ -155,11 +157,6 @@ entries:
       - utilities-file-archiver
       - xarchiver
       - file-roller.svgi
-
-  dolphin:
-    substitute: kora_dolphin
-    aliases:
-      - org.kde.dolphin
 
   github-desktop:
     substitute: kora_github-desktop
