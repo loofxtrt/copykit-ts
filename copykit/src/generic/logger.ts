@@ -11,8 +11,10 @@ function baseLog(level: string = 'text', msg: string[]) {
 
     // definir qual vai ser a cor e alias do level da mensagem baseada no level passado pra func
     // toda versão curta de um level deve ter um número x de caracteres que é igual em todas as ocorrências
+    // o includemainline serve pra não colorir só o level e as linhas extras, mas a primeira linha também
     let color;
     let shortLevel;
+    let includeMainLine: boolean = false;
     switch (level) {
         case 'success':
             color = chalk.green;
@@ -33,6 +35,7 @@ function baseLog(level: string = 'text', msg: string[]) {
         case 'init':
             color = chalk.yellow;
             shortLevel = 'init';
+            includeMainLine = true;
             break;
         default:
             color = chalk.reset;
@@ -48,8 +51,14 @@ function baseLog(level: string = 'text', msg: string[]) {
     if (!msg[0]) {
         return;
     }
-    const finalMsg = msg[0];
     
+    let finalMsg = msg[0];
+
+    // colorir a primeira linha caso necessário
+    if (includeMainLine) {
+        finalMsg = color(finalMsg);
+    }
+
     // tratar mais linhas caso o array de mensagens seja maior que um item
     let extraLines: string = '';
 

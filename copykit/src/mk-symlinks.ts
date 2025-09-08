@@ -6,8 +6,8 @@ import logger from './generic/logger.js';
 export async function remakeSymlinks(targetFiles: string[], copyMainFrom: string, pasteMainInto: string) {
     /**
      * @param targetFiles
-     *  array de PATHS COMPLETOS de todos os arquivos que devem ser deletados
-     *  pra depois serem convertidos pra symlinks
+     *  array de PATHS COMPLETOS de todos os arquivos que devem ser deletados pra depois serem convertidos pra symlinks
+     *  geralmente esses arquivos são os mesmos referenciados por nome nos aliases
      * 
      * @param copyMainFrom
      *  PATH COMPLETO de onde o ícone principal deve ser copiado
@@ -27,7 +27,6 @@ export async function remakeSymlinks(targetFiles: string[], copyMainFrom: string
     pasteMainInto = await normalizeSvgName(pasteMainInto);
 
     // deletar todos os arquivos antes de fazer qualquer outra coisa
-    // geralmente esses arquivos são os mesmos que os aliases
     logger.init('inciando a remoção de arquivos aliases');
     
     for (const file of targetFiles) {
