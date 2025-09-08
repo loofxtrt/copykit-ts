@@ -45,6 +45,10 @@ async function handleReplaceFile(yamlPath: string) {
      * os aliases são todos os nomes que um mesmo arquivo pode ter. como gnome-settings, que tem o mesmo ícone de xfce-settings
      * a ignore-key pode ser usada pra que a key da entrada não conte como um desses aliases
      * não é estritamente necessário .svg no final desses aliases pq o replace já normaliza eles
+     * 
+     * caso remake-symlinks seja true na entrada, o script vai apagar todos os arquivos indicados no alises
+     * e depois, criar um único arquivo, e recriar todos os aliases agora como symlinks, que apontam pro caminho principal
+     * serve pra deshardcodar múltiplos ícones repetidos que poderiam ser só symlinks
      */
 
     // iniciar as variáveis aqui pq elas precisam ser usáveis fora do escopo do try

@@ -20,6 +20,7 @@ export async function remakeSymlinks(targetFiles: string[], copyMainFrom: string
 
     // normalizar todos os valores, adicionando .svg no fim de cada um caso necessário
     targetFiles = await Promise.all(
+        // criar um array só com os paths normalizados
         targetFiles.map(async target => await normalizeSvgName(target))
     );
     copyMainFrom = await normalizeSvgName(copyMainFrom);
