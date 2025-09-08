@@ -1,0 +1,9 @@
+entries:
+  lara:
+    remake-symlinks: true
+    substitute: criatura
+    aliases:
+      - caixa
+      - gigi
+      - desgraca
+      - carro

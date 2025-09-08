@@ -30,7 +30,7 @@ export async function remakeSymlinks(targetFiles, copyMainFrom, pasteMainInto) {
             continue;
         }
         await fs.unlink(file);
-        logger.info('🗑️ arquivo deletado', file);
+        logger.info('arquivo deletado', file);
     }
     // criar o arquivo principal
     try {

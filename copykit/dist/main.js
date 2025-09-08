@@ -4,17 +4,20 @@ import yaml from 'js-yaml';
 import fs from 'fs';
 import path from 'path';
 import logger from './generic/logger.js';
-async function handleReplaceFile(yamlPath) {
+async function handleReplaceFile(yamlPath, targetsDir, substitutesDir) {
     /**
      * lê o arquivo yaml passado pra ela, e com base nas informações desse arquivo, chama o replace
      *
-     * o targets-dir do arquivo indica onde a substituição deve ser basear
+     * @param targetsDir
+     * indica onde a substituição deve ser basear
      * numa substituição de ícones de apps, se pareceria como: nomedopack/apps/scalable/{nomes a partir daqui}
      * e ao fim da função, os aliases/key da entrada do yaml são concatenados ao targets-dir, formando o path completo
      *
-     * o substitutes-dir é onde os ícones substitutos estão localizados
+     * @param substitutesDir
+     * onde os ícones substitutos estão localizados
      * assim como no targets, o valor da chave 'substitute' do yaml é concatenado com o path pra achar o ícone
      *
+     * DENTRO DO ARQUIVO YAML:
      * os aliases são todos os nomes que um mesmo arquivo pode ter. como gnome-settings, que tem o mesmo ícone de xfce-settings
      * a ignore-key pode ser usada pra que a key da entrada não conte como um desses aliases
      * não é estritamente necessário .svg no final desses aliases pq o replace já normaliza eles
@@ -23,11 +26,9 @@ async function handleReplaceFile(yamlPath) {
      * e depois, criar um único arquivo, e recriar todos os aliases agora como symlinks, que apontam pro caminho principal
      * serve pra deshardcodar múltiplos ícones repetidos que poderiam ser só symlinks, tipo os mimetypes de zip
      */
-    // iniciar as variáveis aqui pq elas precisam ser usáveis fora do escopo do try
+    // iniciar a variável aqui pq ela precisa ser usável fora do escopo do try
     let replaceMap = {};
-    let targetsDir = '';
-    let substitutesDir = '';
-    // obter o mapeamento de replaces definido por arquivos yaml
+    // obter o mapeamento de replaces definido pelo arquivo yaml
     try {
         logger.init('iniciando leitura do mapa de substituição', yamlPath);
         // ler o arquivo yaml e transformar o conteúdo em um objeto js
@@ -35,18 +36,12 @@ async function handleReplaceFile(yamlPath) {
         const dataStructure = yaml.load(textContent); // assume que o arquivo yaml sempre vai ter a estrutura certa
         // retorno dos dados com segurança
         if (dataStructure) {
-            // essas chaves devem estar presentes
-            if (!('entries' in dataStructure) ||
-                !('targets-dir' in dataStructure) ||
-                !('substitutes-dir' in dataStructure)) {
-                logger.error('uma das chaves obrigatórias não está presente no mapa');
+            if (!('entries' in dataStructure)) {
+                logger.error(`a chave obrigatória 'entries' não está presente no mapa`);
                 return;
             }
             // carrega o entries do arquivo como o replacemap
             replaceMap = dataStructure['entries'];
-            // carregar os paths base definidos fora do entries
-            targetsDir = dataStructure['targets-dir'];
-            substitutesDir = dataStructure['substitutes-dir'];
         }
         else {
             logger.error(yamlPath, 'a leitura aconteceu mas falhou, possivelmente por:', '- ser null', '- não retornar um objeto', `- não possuir 'entries' como uma das chaves`);
@@ -122,5 +117,5 @@ async function handleReplaceFile(yamlPath) {
         }
     });
 }
-await handleReplaceFile('/mnt/seagate/workspace/coding/projects/scripts/copykit-ts/maps/test.yaml');
+await handleReplaceFile('/mnt/seagate/workspace/coding/projects/scripts/copykit-ts/maps/test.yaml', '/mnt/seagate/workspace/coding/projects/scripts/copykit-ts/testing/targets', '/mnt/seagate/workspace/coding/projects/scripts/copykit-ts/testing/substitutes/o-barato');
 //# sourceMappingURL=main.js.map
