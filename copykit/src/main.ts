@@ -48,7 +48,7 @@ async function handleReplaceFile(yamlPath: string) {
      * 
      * caso remake-symlinks seja true na entrada, o script vai apagar todos os arquivos indicados no alises
      * e depois, criar um único arquivo, e recriar todos os aliases agora como symlinks, que apontam pro caminho principal
-     * serve pra deshardcodar múltiplos ícones repetidos que poderiam ser só symlinks
+     * serve pra deshardcodar múltiplos ícones repetidos que poderiam ser só symlinks, tipo os mimetypes de zip
      */
 
     // iniciar as variáveis aqui pq elas precisam ser usáveis fora do escopo do try
