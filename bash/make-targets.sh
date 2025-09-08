@@ -1,4 +1,4 @@
-#!usr/bin/bash
+#!/usr/bin/bash
 
 # resetar os targets
 rm -rf ./testing/targets/
