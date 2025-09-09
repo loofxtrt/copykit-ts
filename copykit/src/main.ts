@@ -3,6 +3,7 @@ import { handleReplaceMap } from './handle.js';
 import yargs from 'yargs';
 import { hideBin } from 'yargs/helpers';
 import { normalizeYamlName } from './generic/helpers.js';
+import logger from './generic/logger.js';
 
 const YAML_MAPS_DIR = '/mnt/seagate/workspace/coding/projects/scripts/copykit-ts/maps';
 const SUBSTITUTES_ROOT = '/mnt/seagate/symlinks/copykit-data/data/substitutes/';
@@ -29,7 +30,7 @@ yargs(hideBin(process.argv))
                     type: 'string'
                 })
                 .option('depth', {
-                    describe: 'local/remote, afetar só os ícones locais ou os do repositório',
+                    describe: 'local/remote/all, afetar só os ícones locais ou os do repositório',
                     type: 'string',
                     alias: 'd'
                 });
@@ -47,17 +48,33 @@ yargs(hideBin(process.argv))
                 map = await normalizeYamlName(map);
 
                 // chamar a substituição
+                // tem um wrapper pra substituição local pq ela pode ser chamada várias vezes dependendo da condição
+                const callLocalReplace = async () => await handleReplaceMap(map, PACK_ROOT_LOCAL, substitutesDir);
+
                 if (!depth) {
-                    // substituir tanto a versão local quanto a do repositório
-                    await handleReplaceMap(map, PACK_ROOT_LOCAL, substitutesDir);
-                    await handleReplaceMap(map, PACK_ROOT_REMOTE, substitutesDir);
+                    // substituir a versão local caso nenhuma opção seja passada pra depth
+                    // isso acontece por segurança, pq em caso de falha da pra só rodar o script de reverter o icon pack
+                    await callLocalReplace();
                 } else {
-                    // substituir apenas uma versão do icon pack
-                    if (depth === 'remote') {
-                        await handleReplaceMap(map, PACK_ROOT_REMOTE, substitutesDir);
-                    } else if (depth === 'local') {
-                        await handleReplaceMap(map, PACK_ROOT_LOCAL, substitutesDir);
-                    }
+                    // substituir versões especificas a partir da opção passada pra depth
+                    switch (depth) {
+                        case 'remote':
+                            // só a versão do repositório
+                            await handleReplaceMap(map, PACK_ROOT_REMOTE, substitutesDir);
+                            break;
+                        case 'local':
+                            // só a versão local
+                            await callLocalReplace();
+                            break;
+                        case 'all':
+                            // tanto a versão local quanto a do repositório
+                            await callLocalReplace();
+                            await handleReplaceMap(map, PACK_ROOT_REMOTE, substitutesDir);
+                            break;
+                        default:
+                            logger.error('depth inválida');
+                            break;
+                        }
                 }
             }
         }
