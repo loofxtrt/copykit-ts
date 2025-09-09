@@ -20,11 +20,33 @@ entries:
   
   folder-download:
     substitute: kora_folder-download
+    aliases:
+      - folder-download-open
+      - folder-downloads
   
   folder-publicshare:
     substitute: kora_folder-publicshare
   folder-publicshare-open:
     substitute: kora_folder-publicshare-open
+
+  folder-locked:
+    substitute: kora_folder-locked
+    aliases:
+      - certificate-server
+      - folder-ecrypted
+      - folder-encrypted
+
+  
+  folder-unlocked:
+    substitute: kora_folder-unlocked
+    aliases:
+      - folder-decrypted
+
+  folder-wine:
+    substitute: kora_folder-wine
+
+  folder-books:
+    substitute: kora_folder-books
 
   user-desktop:
     substitute: kora_user-desktop
@@ -33,3 +55,6 @@ entries:
   
   user-home:
     substitute: kora_user-home
+  
+  user-share:
+    substitute: kora_user-share
