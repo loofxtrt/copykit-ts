@@ -25,6 +25,15 @@ entries:
       - folder-download-open
       - folder-downloads
   
+  user-desktop:
+    substitute: kora_user-desktop
+    #aliases:
+      #- gnome-desktop-config # removido pq sobreescreve o ícone de engrenagem com uma pasta, não deve ser mudado
+  
+  user-home:
+    substitute: kora_user-home
+  
+  # --- A PARTIR DAQUI, APENAS NORMALIZAÇÃO DE CORES/GRADIENTES ---
   folder-publicshare:
     substitute: kora_folder-publicshare
   
@@ -48,14 +57,18 @@ entries:
 
   folder-books:
     substitute: kora_folder-books
-
-  user-desktop:
-    substitute: kora_user-desktop
-    #aliases:
-      #- gnome-desktop-config # removido pq sobreescreve o ícone de engrenagem com uma pasta, não deve ser mudado
-  
-  user-home:
-    substitute: kora_user-home
   
   user-share:
     substitute: kora_user-share
+
+  folder-3dprint:
+    substitute: kora_folder-3dprint
+  
+  folder-add:
+    substitute: kora_folder-add
+  
+  folder-android:
+    substitute: kora_folder-android
+
+  folder-applications:
+    substitute: kora_folder-applications
