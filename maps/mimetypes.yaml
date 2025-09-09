@@ -3,25 +3,26 @@ target-dir: mimetypes/scalable
 entries:
   rust:
     ignore-key: true # se fosse false, o jogo rust seria sobreescrito em vez da linguagem de programação rust
-    substitute:
+    substitute: kora_rust
     aliases:
       - text-rust
       - text-x-rust
 
-  javascript:
-    substitute:
-    aliases:
-      - application-javascript
-      - application-x-javascript
-      - gnome-mime-application-javascript
-      - gnome-mime-application-x-javascript
-      - gnome-mime-text-javascript
-      - gnome-mime-text-x-javascript
-      - text-javascript
-      - text-x-javascript
+  # TEMPORARIAMENTE COMENTADO ENQUANTO A FONTE NÃO É DECIDIDA
+  #javascript:
+  #  substitute:
+  #  aliases:
+  #    - application-javascript
+  #    - application-x-javascript
+  #    - gnome-mime-application-javascript
+  #    - gnome-mime-application-x-javascript
+  #    - gnome-mime-text-javascript
+  #    - gnome-mime-text-x-javascript
+  #    - text-javascript
+  #    - text-x-javascript
 
   kotlin:
-    substitute:
+    substitute: kora_kotlin
     aliases:
       - text-x-kotlin
 

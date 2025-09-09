@@ -12,6 +12,7 @@ entries:
   
   folder-music:
     substitute: kora_folder-music
+  
   folder-music-open:
     substitute: kora_folder-music-open
   
@@ -26,6 +27,7 @@ entries:
   
   folder-publicshare:
     substitute: kora_folder-publicshare
+  
   folder-publicshare-open:
     substitute: kora_folder-publicshare-open
 
@@ -35,7 +37,6 @@ entries:
       - certificate-server
       - folder-ecrypted
       - folder-encrypted
-
   
   folder-unlocked:
     substitute: kora_folder-unlocked
