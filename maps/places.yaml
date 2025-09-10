@@ -34,7 +34,6 @@ entries:
     aliases:
       - desktop
       - gnome-desktop-config
-      #- gnome-desktop-config # removido pq sobreescreve o ícone de engrenagem com uma pasta, não deve ser mudado
   
   user-home:
     substitute: kora_user-home
@@ -48,6 +47,11 @@ entries:
   
   folder-publicshare-open:
     substitute: kora_folder-publicshare-open
+  
+  folder-html:
+    substitute: kora_folder-html
+    aliases:
+      - folder_html
 
   folder-locked:
     substitute: kora_folder-locked
@@ -164,6 +168,3 @@ entries:
 
   folder-vbox:
     substitute: kora_folder-vbox
-
-  gnome-desktop-config:
-    substitute: kora_gnome-desktop-config
