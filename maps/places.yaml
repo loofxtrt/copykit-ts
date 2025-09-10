@@ -18,6 +18,9 @@ entries:
   
   folder-documents:
     substitute: kora_folder-documents
+    aliases:
+      - folder_wordprocessing
+      - folder_man
   
   folder-download:
     substitute: kora_folder-download
@@ -26,12 +29,18 @@ entries:
       - folder-downloads
   
   user-desktop:
+    remake-symlinks: true
     substitute: kora_user-desktop
-    #aliases:
+    aliases:
+      - desktop
+      - gnome-desktop-config
       #- gnome-desktop-config # removido pq sobreescreve o ícone de engrenagem com uma pasta, não deve ser mudado
   
   user-home:
     substitute: kora_user-home
+    aliases:
+      - user-home-drag-accept
+      - user-home-open
   
   # --- A PARTIR DAQUI, APENAS NORMALIZAÇÃO DE CORES/GRADIENTES ---
   folder-publicshare:
@@ -60,6 +69,8 @@ entries:
   
   user-share:
     substitute: kora_user-share
+    aliases:
+      - gnome-fs-blockdev
 
   folder-3dprint:
     substitute: kora_folder-3dprint
@@ -72,3 +83,87 @@ entries:
 
   folder-applications:
     substitute: kora_folder-applications
+
+  folder-arduino:
+    substitute: kora_folder-arduino
+
+  folder-backup:
+    substitute: kora_folder-backup
+
+  folder-cd:
+    substitute: kora_folder-cd
+
+  folder-copy-cloud:
+    substitute: kora_folder-copy-cloud
+
+  folder-development:
+    substitute: kora_folder-development
+
+  folder-dropbox:
+    substitute: kora_folder-dropbox
+
+  folder-favorites:
+    substitute: kora_folder-favorites
+    aliases:
+      - favorites
+
+  folder-gdrive:
+    substitute: kora_folder-gdrive
+
+  folder-go:
+    substitute: kora_folder-go
+
+  folder-image-people:
+    substitute: kora_folder-image-people
+    aliases:
+      - folder_home2
+
+  folder-kde:
+    substitute: kora_folder-kde
+
+  folder-linux:
+    substitute: kora_folder-linux
+
+  folder-megasync:
+    substitute: kora_folder-megasync
+
+  folder-nextcloud:
+    substitute: kora_folder-nextcloud
+
+  folder-owncloud:
+    substitute: kora_folder-owncloud
+
+  folder-projects:
+    substitute: kora_folder-projects
+
+  folder-recent:
+    substitute: kora_folder-recent
+
+  folder-root:
+    substitute: kora_folder-root
+
+  folder-saved-search:
+    substitute: kora_folder-saved-search
+    aliases:
+      - application-x-gnome-saved-search
+
+  folder-script:
+    substitute: kora_folder-script
+
+  folder-snap:
+    substitute: kora_folder-snap
+
+  folder-sync:
+    substitute: kora_folder-sync
+
+  folder-syncthing:
+    substitute: kora_folder-syncthing
+
+  folder-system:
+    substitute: kora_folder-system
+
+  folder-vbox:
+    substitute: kora_folder-vbox
+
+  gnome-desktop-config:
+    substitute: kora_gnome-desktop-config

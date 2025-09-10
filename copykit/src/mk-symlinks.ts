@@ -50,7 +50,10 @@ export async function remakeSymlinks(targetFiles: string[], copyMainFrom: string
     }
 
     // criar os symlinks que apontam pro arquivo principal
-    let mainRelativeName = path.basename(pasteMainInto); // nome relativo sem o resto do path
+
+    // nome relativo do ícone principal sem o resto do path
+    // isso deve ser feito pra evitar paths hardcoded
+    let mainRelativeName = path.basename(pasteMainInto);
 
     for (let file of targetFiles) {
         // ignorar o arquivo principal
