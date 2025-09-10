@@ -75,6 +75,17 @@ entries:
     substitute: kora_user-share
     aliases:
       - gnome-fs-blockdev
+      - gnome-fs-ftp
+      - gnome-fs-network
+      - gnome-fs-nfs
+      - gnome-fs-share
+      - gnome-fs-smb
+      - gnome-mime-x-directory-share
+      - gnome-mime-x-directory-smb-share
+      - gnome-mime-x-directory-smb-workgroup
+      - gnome-network
+      - stock_shared-by-me
+      - stock_shared-to-me
 
   folder-3dprint:
     substitute: kora_folder-3dprint
