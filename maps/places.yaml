@@ -42,6 +42,13 @@ entries:
       - user-home-open
   
   # --- A PARTIR DAQUI, APENAS NORMALIZAÇÃO DE CORES/GRADIENTES ---
+  folder-open:
+    substitute: kora_folder-open
+    aliases:
+      - folder_open
+      - stock_open
+      - gnome-fs-directory-open
+
   folder-publicshare:
     substitute: kora_folder-publicshare
   
