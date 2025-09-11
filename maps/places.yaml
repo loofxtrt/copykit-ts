@@ -179,3 +179,12 @@ entries:
 
   folder-vbox:
     substitute: kora_folder-vbox
+  
+  network-manager:
+    substitute: kora_network-manager
+    aliases:
+      - folder-network
+      - network-server
+      - network_local
+      - network
+      - network-workgroup
