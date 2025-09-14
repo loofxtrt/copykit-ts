@@ -79,11 +79,4 @@ yargs(hideBin(process.argv))
     //)
     .help()
     .argv;
-/*
-await handleReplaceMap(
-    '/mnt/seagate/workspace/coding/projects/scripts/copykit-ts/maps/test.yaml',
-    '/mnt/seagate/workspace/coding/projects/scripts/copykit-ts/testing/targets',
-    '/mnt/seagate/workspace/coding/projects/scripts/copykit-ts/testing/substitutes/o-barato'
-);
-*/ 
 //# sourceMappingURL=main.js.map

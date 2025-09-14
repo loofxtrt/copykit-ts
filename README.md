@@ -6,7 +6,10 @@ pra compilar e rodar o main direto
   
 pra compilar e chamar o script  
 `npx tsc`  
-`node copykit/dist/main.js (comando) (argumentos e opções)`  
+`node copykit/dist/main.js <comando> <argumentos e opções>`  
+  
+ou se for só rodar o replace de uma vez sem precisar passar opções e nem compilar  
+`bash bash/replace-all <seção>`
   
 > [!IMPORTANT]  
 > os arquivos `.yaml` do `./maps` devem ter os mesmos nomes que os subdiretórios que contém seus respectivos substitutos  

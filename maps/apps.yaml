@@ -156,7 +156,7 @@ entries:
       - org.gnome.ArchiveManager
       - utilities-file-archiver
       - xarchiver
-      - file-roller.svgi
+      - file-roller
 
   github-desktop:
     substitute: kora_github-desktop
@@ -208,61 +208,66 @@ entries:
   protoncalendar:
     substitute: kora_protoncalendar
 
-  # FORCE CREATION AINDA NAO EXISTE
-  # libresprite:
-  #   substitute: libresprite
-  #   aliases:
-  #     - com.github.libresprite.LibreSprite
-  #   force-creation-in: apps/scalable
+  # MEH
+  #krusader:
+  #  substitute: kora_krusader_user
+  #  aliases:
+  #    - krusader_user
+  #    - krusader_blue
+  #  ignore-key: true
+  #krusader-root:
+  #  substitute: kora_krusader_root
+  #  aliases:
+  #    - krusader_root
+  #    - krusader_red
+  #  ignore-key: true
 
-  # roblox-player:
-  #   substitute: roblox-player
-  #   aliases:
-  #     - io.github.vinegarhq.Vinegar.player
-  #     - net.brinkervii.grapejuice.robloxplayer
-  #     - grapejuice-roblox-player
-  #   ignore-key: true
-  #   force-creation-in: apps/scalable
+  libresprite:
+    substitute: libresprite
+    aliases:
+      - com.github.libresprite.LibreSprite
 
-  # roblox-studio:
-  #   substitute: roblox-studio
-  #   aliases:
-  #     - io.github.vinegarhq.Vinegar.studio
-  #     - grapejuice-roblox-studio
-  #     - net.brinkervii.grapejuice.robloxstudio
-  #     - org.vinegarhq.Vinegar.studio
-  #   ignore-key: true
-  #   force-creation-in: apps/scalable
+  roblox-player:
+    substitute: roblox-player
+    aliases:
+      - io.github.vinegarhq.Vinegar.player
+      - net.brinkervii.grapejuice.robloxplayer
+      - grapejuice-roblox-player
+    ignore-key: true
 
-  # sober:
-  #   substitute: roblox-sober
-  #   aliases:
-  #     - org.vinegarhq.Sober
-  #   ignore-key: true
-  #   force-creation-in: apps/scalable
+  roblox-studio:
+    substitute: roblox-studio
+    aliases:
+      - io.github.vinegarhq.Vinegar.studio
+      - grapejuice-roblox-studio
+      - net.brinkervii.grapejuice.robloxstudio
+      - org.vinegarhq.Vinegar.studio
+    ignore-key: true
 
-  # vinegar:
-  #   substitute: roblox-vinegar
-  #   aliases:
-  #     - io.github.vinegarhq.Vinegar
-  #     - org.vinegarhq.Vinegar
-  #   ignore-key: true
-  #   force-creation-in: apps/scalable
+  sober:
+    substitute: roblox-sober
+    aliases:
+      - org.vinegarhq.Sober
+    ignore-key: true
 
-  # java21-openjdk:
-  #   substitute: kora_java
-  #   force-creation-in: apps/scalable
+  vinegar:
+    substitute: roblox-vinegar
+    aliases:
+      - io.github.vinegarhq.Vinegar
+      - org.vinegarhq.Vinegar
+    ignore-key: true
 
-  # trenchbroom:
-  #   substitute: trenchbroom
-  #   aliases:
-  #     - com.kristianduske.TrenchBroom
-  #   ignore-key: true
-  #   force-creation-in: apps/scalable
+  java21-openjdk:
+    substitute: kora_java
 
-  # animeeffects:
-  #   substitute: animeeffects
-  #   aliases:
-  #     - AnimeEffects
-  #   ignore-key: true
-  #   force-creation-in: apps/scalable
+  trenchbroom:
+    substitute: trenchbroom
+    aliases:
+      - com.kristianduske.TrenchBroom
+    ignore-key: true
+
+  animeeffects:
+    substitute: animeeffects
+    aliases:
+      - AnimeEffects
+    ignore-key: true
