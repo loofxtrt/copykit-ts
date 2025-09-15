@@ -271,3 +271,51 @@ entries:
     aliases:
       - AnimeEffects
     ignore-key: true
+  
+  bluemail:
+    substitute: papirus_bluemail
+    aliases:
+      - net.blix.BlueMail
+  
+  mail-apps:
+    substitute: papirus_internet-mail
+    ignore-key: true
+    aliases:
+      - claws-mail-128x128
+      - claws-mail-32x32
+      - claws-mail-64x64
+      - claws-mail
+      - e-mail
+      - clawsker
+      - kube-mail
+      - xfce-newmail
+      - unity-mail
+      - yast-mail
+      - email-client
+      - email
+      - x-office-mail
+      - xfce-mail
+      - io.elementary.mail
+      - unity-webapps-mail-ru
+      - ximian-evolution-email
+      - internet-mail
+      - deepin-mail
+      - kmailcvt
+      - org.kde.merkuro.mail
+      - org.xfce.mailreader
+      - xfmail
+      - redhat-email
+      - mail-client
+      - mail-generic
+      - mail-notification
+      - mail
+      - mailnag
+      - mailru-mail.ru
+      - mail_generic
+      - package_internet_email
+      - kmail
+      - kmail2
+      - evolution-mail
+      - preferences-mail
+      - internet_mail
+      - org.claws_mail.Claws-Mail
