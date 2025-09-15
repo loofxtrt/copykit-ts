@@ -301,7 +301,6 @@ entries:
       - internet-mail
       - deepin-mail
       - kmailcvt
-      - org.kde.merkuro.mail
       - org.xfce.mailreader
       - xfmail
       - redhat-email
@@ -319,3 +318,8 @@ entries:
       - preferences-mail
       - internet_mail
       - org.claws_mail.Claws-Mail
+  
+  # esse foi anteriormente substituído por acidente
+  # mantendo ele aqui só pra ter certeza de que não ocorrerá de novo
+  org.kde.merkuro.mail:
+    substitute: kora_merkuro-mail
