@@ -7,20 +7,7 @@ entries:
     aliases:
       - text-rust
       - text-x-rust
-
-  # TEMPORARIAMENTE COMENTADO ENQUANTO A FONTE NÃO É DECIDIDA
-  #javascript:
-  #  substitute:
-  #  aliases:
-  #    - application-javascript
-  #    - application-x-javascript
-  #    - gnome-mime-application-javascript
-  #    - gnome-mime-application-x-javascript
-  #    - gnome-mime-text-javascript
-  #    - gnome-mime-text-x-javascript
-  #    - text-javascript
-  #    - text-x-javascript
-
+  
   kotlin:
     substitute: kora_kotlin
     aliases:
@@ -122,3 +109,16 @@ entries:
       - tar
       - tgz
       - viewdvi
+  
+  # TEMPORARIAMENTE COMENTADO ENQUANTO A FONTE NÃO É DECIDIDA
+  #javascript:
+  #  substitute:
+  #  aliases:
+  #    - application-javascript
+  #    - application-x-javascript
+  #    - gnome-mime-application-javascript
+  #    - gnome-mime-application-x-javascript
+  #    - gnome-mime-text-javascript
+  #    - gnome-mime-text-x-javascript
+  #    - text-javascript
+  #    - text-x-javascript
