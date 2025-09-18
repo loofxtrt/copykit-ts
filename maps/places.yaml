@@ -29,11 +29,14 @@ entries:
       - folder-downloads
   
   user-desktop:
-    remake-symlinks: true
+    #remake-symlinks: true
     substitute: kora_user-desktop
     aliases:
       - desktop
       - gnome-desktop-config
+      - gnome-ccdesktop
+      - gnome-desktop
+      - gnome-fs-desktop
   
   user-home:
     substitute: kora_user-home

@@ -14,7 +14,7 @@ entries:
       - text-x-kotlin
 
   zip:
-    remake-symlinks: true
+    #remake-symlinks: true
     substitute: kora_zip
     aliases:
       - 7zip
