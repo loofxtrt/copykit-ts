@@ -145,7 +145,8 @@ entries:
     force-creation-in: apps/scalable
 
   ark:
-    substitute: yosa-max_ark
+    #substitute: yosa-max_ark
+    substitute: qogir_ark
     aliases:
       - org.kde.ark
       - accessories-archiver
