@@ -115,7 +115,7 @@ entries:
       - org.sqlitebrowser.sqlitebrowser
   
   audacity:
-    substitute: audacity
+    substitute: yosa-max_audacity
     aliases:
       - org.audacityteam.Audacity
       - application-x-audacity-project
