@@ -188,8 +188,9 @@ entries:
       - CMakeSetup
       - CMakeSetup32
 
+  # resetado pro kora normal
   minecraft:
-    substitute: minecraft
+    substitute: kora_minecraft
     aliases:
       - com.mojang.Minecraft
       - minecraft-launcher
