@@ -5,3 +5,5 @@
 - [ ] search
 - [ ] fazer um logger melhor
 - [x] passar a responsabilidade do path do substitutes e targets dos .yaml pro main.ts
+- [ ] add endeavouros
+- [ ] as cogs (ícones de engrenagem) parecem ter sido hardcoded em vez de terem só os não-symlinks afetados
