@@ -1,0 +1,10 @@
+target-dir: apps/scalable
+
+entries:
+  settings:
+    ignore-key: true
+    substitute: reversal-black_cosmic-settings
+    aliases:
+      - preferences-system.svg
+      - utilities-tweak-tool.svg
+      - configuration-section

@@ -9,7 +9,7 @@ pra compilar e chamar o script
 `node copykit/dist/main.js <comando> <argumentos e opções>`  
   
 ou se for só rodar o replace de uma vez sem precisar passar opções e nem compilar  
-`bash bash/replace-all <seção>`  
+`bash replace-local.sh/replace-all.sh <seção>`  
   
 pra pesquisar ícones  
 `python3 python/search.py <termo de pesquisa>`    
