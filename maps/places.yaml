@@ -31,6 +31,7 @@ entries:
   user-desktop:
     #remake-symlinks: true
     substitute: kora_user-desktop
+    #substitute: kora-yosa-max_user-desktop
     aliases:
       - desktop
       - gnome-desktop-config

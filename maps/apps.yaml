@@ -325,3 +325,9 @@ entries:
   # mantendo ele aqui só pra ter certeza de que não ocorrerá de novo
   org.kde.merkuro.mail:
     substitute: kora_merkuro-mail
+  
+  vesktop:
+    ignore-key: true
+    substitute: vesktop
+    aliases:
+      - dev.vencord.Vesktop
