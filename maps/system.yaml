@@ -3,7 +3,8 @@ target-dir: apps/scalable
 entries:
   settings:
     ignore-key: true
-    substitute: reversal-black_cosmic-settings
+    #substitute: reversal-black_cosmic-settings
+    substitute: cog
     aliases:
       - preferences-system.svg
       - utilities-tweak-tool.svg

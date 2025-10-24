@@ -331,3 +331,22 @@ entries:
     substitute: vesktop
     aliases:
       - dev.vencord.Vesktop
+    
+  calculator:
+    ignore-key: true
+    substitute: calculator
+    aliases:
+      - accessories-calculator
+      - calculator
+      - calc
+      - deepin-calculator
+      - gcalculator
+      - gnome-calculator
+      - io.elementary.calculator
+      - io.liri.Calculator
+      - kcalc
+      - org.gnome.Calculator
+      - org.kde.kcalc
+      - org.kde.plasma.calculator
+      - xcalc
+      - xfce4-calculator-plugin
