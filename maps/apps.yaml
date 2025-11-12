@@ -350,3 +350,8 @@ entries:
       - org.kde.plasma.calculator
       - xcalc
       - xfce4-calculator-plugin
+  
+  filelight:
+    substitute: breeze-dark_filelight
+    aliases:
+      - org.kde.filelight
